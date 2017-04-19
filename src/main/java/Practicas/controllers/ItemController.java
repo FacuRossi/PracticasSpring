@@ -34,8 +34,8 @@ public class ItemController {
         return itemService.findByCategoria(id_categoria);
     }
 
-    @RequestMapping(method =RequestMethod.GET , value = "/items", params = "nombre_usuario")
-    public List<Item> findByUsuario(String nombre_usuario){
-        return itemService.findByUsuario(nombre_usuario);
+    @RequestMapping(method =RequestMethod.GET , value = "/items", params = "id_usuario")
+    public List<Item> findByUsuario(int id_usuario){
+        return itemService.findByUsuario(id_usuario);
     }
 }

@@ -1,5 +1,7 @@
 package Practicas.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,8 +17,12 @@ public class Usuario {
     private String nombre;
     private String apellido;
 
-    //@OneToMany(mappedBy = "usuario")
-//    private List<Item> items;
+//      OneToMany:Como su nombre indica le dice a Hibernate que esta propiedad contendrá la lista de hijos.
+//      mappedBy: Este atributo contendrá el nombre de la propiedad Java de la clase hija que enlaza
+//      con la clase padre. En nuestro ejemplo es el nombre de la propiedad usuario que se encuentra en la
+//      clase item.
+    @OneToMany(mappedBy = "usuario")
+    private List<Item> items;
 
     protected Usuario() {
     }
@@ -24,7 +30,7 @@ public class Usuario {
     public Usuario(String nombre, String apellido) {
         this.nombre = nombre;
         this.apellido = apellido;
-        //this.items = new ArrayList<Item>();
+        this.items = new ArrayList<Item>();
     }
 
     public int getId() {
@@ -51,5 +57,12 @@ public class Usuario {
         this.apellido = apellido;
     }
 
+//    @JsonIgnore
+    public List<Item> getItems() {
+        return items;
+    }
 
+    public void setItems(List<Item> items) {
+        this.items = items;
+    }
 }

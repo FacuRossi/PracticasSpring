@@ -17,11 +17,15 @@ public class Item {
     @JoinColumn(name="id_categoria")
     private Categoria categoria;
 
-    @OneToOne
+//      ManyToOne:Al ser el otro lado de la relación indicamos que desde este lado es una relación muchos a uno.
+//      JoinColumn: Indicaremos el nombre de la columna que en la tabla hija contiene la clave ajena a la tabla padre.
+//      En nuestro ejemplo es la columna de la base de datos id_usuario que se encuentra en la tabla Item
+//      la cual enlaza con la tabla Usuario
+    @ManyToOne
     @JoinColumn(name="id_usuario")
     private Usuario usuario;
 
-    public Item(String nombre, String descripcion, Categoria categoria, Usuario usuario) {
+    public Item(String nombre, String descripcion,  Categoria categoria ,Usuario usuario) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.categoria = categoria;

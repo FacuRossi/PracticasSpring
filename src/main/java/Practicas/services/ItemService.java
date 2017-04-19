@@ -32,8 +32,8 @@ public class ItemService {
         return itemRepository.findItemsByCategoria_Id(idCategoria);
     }
 
-    public List<Item> findByUsuario(String name){
-        return itemRepository.findItemsByUsuario_Nombre(name);
+    public List<Item> findByUsuario(int idUsuario){
+        return itemRepository.findItemsByUsuario_Id(idUsuario);
     }
 
 }

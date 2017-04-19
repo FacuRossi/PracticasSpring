@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataSource name="practicas-bd@localhost">
+<dataSource name="practicas-bd2@localhost">
   <database-model serializer="dbm" rdbms="MYSQL" format-version="4.1">
     <root id="1"/>
     <schema id="2" parent="1" name="practicas-bd">
       <Current>1</Current>
-      <Visible>1</Visible>
     </schema>
     <schema id="3" parent="1" name="information_schema"/>
     <schema id="4" parent="1" name="mysql"/>
@@ -12,10 +11,13 @@
     <schema id="6" parent="1" name="sakila"/>
     <schema id="7" parent="1" name="sys"/>
     <schema id="8" parent="1" name="world"/>
-    <schema id="9" parent="1" name="userbase"/>
-    <table id="10" parent="2" name="categoria"/>
-    <table id="11" parent="2" name="item"/>
-    <table id="12" parent="2" name="usuario"/>
+    <schema id="9" parent="1" name="practicas-bd2">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <table id="10" parent="9" name="categoria"/>
+    <table id="11" parent="9" name="item"/>
+    <table id="12" parent="9" name="usuario"/>
     <column id="13" parent="10" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
@@ -52,12 +54,11 @@
     <column id="20" parent="11" name="id_usuario">
       <Position>5</Position>
       <DataType>int(11)|0</DataType>
-      <NotNull>1</NotNull>
     </column>
     <index id="21" parent="11" name="FKcxpu95rkvlx4m3rvwddvyavgb">
       <ColNames>id_categoria</ColNames>
     </index>
-    <index id="22" parent="11" name="fk_usuario">
+    <index id="22" parent="11" name="FKmewoists3wf3a2d4b39t0fchw">
       <ColNames>id_usuario</ColNames>
     </index>
     <key id="23" parent="11" name="PRIMARY">
@@ -67,13 +68,13 @@
     </key>
     <foreign-key id="24" parent="11" name="FKcxpu95rkvlx4m3rvwddvyavgb">
       <ColNames>id_categoria</ColNames>
-      <RefSchemaName>practicas-bd</RefSchemaName>
+      <RefSchemaName>practicas-bd2</RefSchemaName>
       <RefTableName>categoria</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="25" parent="11" name="fk_usuario">
+    <foreign-key id="25" parent="11" name="FKmewoists3wf3a2d4b39t0fchw">
       <ColNames>id_usuario</ColNames>
-      <RefSchemaName>practicas-bd</RefSchemaName>
+      <RefSchemaName>practicas-bd2</RefSchemaName>
       <RefTableName>usuario</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
