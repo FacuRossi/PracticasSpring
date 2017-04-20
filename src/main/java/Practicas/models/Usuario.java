@@ -18,7 +18,7 @@ public class Usuario {
     private String apellido;
 
 //      OneToMany:Como su nombre indica le dice a Hibernate que esta propiedad contendrá la lista de hijos.
-//      mappedBy: Este atributo contendrá el nombre de la propiedad Java de la clase hija que enlaza
+//      mappedBy: Este atributo contendrá el nombre de la propiedad/atributo Java de la clase hija que enlaza
 //      con la clase padre. En nuestro ejemplo es el nombre de la propiedad usuario que se encuentra en la
 //      clase item.
     @OneToMany(mappedBy = "usuario")
@@ -57,7 +57,7 @@ public class Usuario {
         this.apellido = apellido;
     }
 
-//    @JsonIgnore
+    @JsonIgnore
     public List<Item> getItems() {
         return items;
     }

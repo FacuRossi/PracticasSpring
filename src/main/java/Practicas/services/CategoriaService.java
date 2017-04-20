@@ -27,5 +27,9 @@ public class CategoriaService {
         categoriaRepository.save(c);
     }
 
+    public void deleteCategoria(int idCategoria){
+        categoriaRepository.delete(idCategoria);
+    }
+
 
 }
