@@ -17,7 +17,7 @@ public class CategoriaService {
     @Autowired
     private CategoriaRepository categoriaRepository;
 
-    public List<Categoria> getCategoria() {
+    public List<Categoria> getCategorias() {
         List<Categoria> categorias = new ArrayList<Categoria>();
         categoriaRepository.findAll().forEach(categorias :: add);
         return categorias;
@@ -31,5 +31,8 @@ public class CategoriaService {
         categoriaRepository.delete(idCategoria);
     }
 
+    public Categoria getCategoria(int id){
+        return categoriaRepository.findOne(id);
+    }
 
 }

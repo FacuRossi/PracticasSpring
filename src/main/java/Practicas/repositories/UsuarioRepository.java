@@ -1,6 +1,5 @@
 package Practicas.repositories;
 
-import Practicas.models.Item;
 import Practicas.models.Usuario;
 import org.springframework.data.repository.CrudRepository;
 

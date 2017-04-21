@@ -18,7 +18,7 @@ public class UsuarioController {
     private UsuarioService usuarioService;
 
     @RequestMapping("/usuarios")
-    public List<Usuario> getUsuarios(){
+    public List<Usuario> getUsers(){
         return usuarioService.getUsuarios();
     }
 
@@ -41,9 +41,5 @@ public class UsuarioController {
     public void deleteUser(@PathVariable int id){
         usuarioService.deleteUsuario(id);
     }
-//    @RequestMapping(method = RequestMethod.GET, value="/usuarios/{id_usuario}/items")
-//    public List<Item> getItemsdeUsuario(@PathVariable int id_usuario){
-//       return usuarioService.getItemsDeUsuario(id_usuario);
-//    }
 
 }

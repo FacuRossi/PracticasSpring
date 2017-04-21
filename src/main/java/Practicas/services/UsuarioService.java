@@ -37,8 +37,6 @@ public class UsuarioService {
         usuarioRepository.delete(id);
     }
 
-//    public List<Item> getItemsDeUsuario(int id_usuario){
-//        return itemsRepository.findItemsByUsuario_Id(id_usuario);
-//    }
+
 
 }

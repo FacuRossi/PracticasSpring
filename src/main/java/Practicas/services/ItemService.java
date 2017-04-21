@@ -24,11 +24,6 @@ public class ItemService {
         return items;
     }
 
-    public List<Item> getAllItemsTheUser(int id){
-        List<Item> items = new ArrayList<Item>();
-        itemRepository.findItemsByUsuarioId(id).forEach(items :: add);
-        return items;
-    }
     public Item getItem(int id){
         return itemRepository.findOne(id);
     }
