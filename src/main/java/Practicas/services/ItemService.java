@@ -24,8 +24,20 @@ public class ItemService {
         return items;
     }
 
+    public List<Item> getAllItemsTheUser(int id){
+        List<Item> items = new ArrayList<Item>();
+        itemRepository.findItemsByUsuarioId(id).forEach(items :: add);
+        return items;
+    }
+    public Item getItem(int id){
+        return itemRepository.findOne(id);
+    }
     public void addItem(Item i){
         itemRepository.save(i);
+    }
+
+    public void deleteItem(int id){
+        itemRepository.delete(id);
     }
 
     public List<Item> findByCategoria(int idCategoria){

@@ -3,11 +3,9 @@ package Practicas.controllers;
 import Practicas.models.Item;
 import Practicas.models.Usuario;
 import Practicas.services.ItemService;
+import com.sun.org.apache.regexp.internal.RE;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,10 +22,34 @@ public class ItemController {
         return itemService.getItems();
     }
 
-    @RequestMapping(method= RequestMethod.POST , value="/items")
-    public void addItem(@RequestBody Item item){
+    @RequestMapping(method = RequestMethod.GET, value="/usuarios/{id}/items")
+    public List<Item> getAllItemsTheUser(@PathVariable int id){
+        return itemService.getAllItemsTheUser(id);
+    }
+
+    @RequestMapping(method= RequestMethod.POST , value="/usuarios/{id}/items")
+    public void addItem(@RequestBody Item item, @PathVariable int id)
+    {
+        item.setUsuario(new Usuario(id, "", "" ));
         itemService.addItem(item);
     }
+
+    @RequestMapping(method = RequestMethod.GET, value="/usuarios/{idUsuario}/items/{id}")
+    public Item getItem(@PathVariable int id){
+        return itemService.getItem(id);
+    }
+
+    @RequestMapping(method = RequestMethod.PUT , value ="/usuarios/{idUsuario}/items/{id}" )
+    public void updateItem(@RequestBody Item item, @PathVariable int idUsuario, @PathVariable int id){
+        item.setUsuario(new Usuario(id, "", "" ));
+        itemService.addItem(item);
+    }
+
+    @RequestMapping(method = RequestMethod.DELETE , value ="/usuarios/{idUsuario}/items/{id}" )
+    public void deleteItem(@PathVariable int id){
+        itemService.deleteItem(id);
+    }
+
 
     @RequestMapping(method = RequestMethod.GET, value="/items", params = "id_categoria")
     public List<Item> findByCategoria(int id_categoria){

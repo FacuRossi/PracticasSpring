@@ -12,8 +12,11 @@ import java.util.List;
 
 public interface ItemRepository extends CrudRepository<Item, Integer>{
 
+    public List<Item> findItemsByUsuarioId(int id);
+
     public List<Item> findItemsByCategoria_Id(int id_categoria);
 
     public List<Item> findItemsByUsuario_Id(int id_usuario);
+
 
 }

@@ -1,6 +1,9 @@
 package Practicas.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.hibernate.annotations.IndexColumn;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -21,8 +24,8 @@ public class Usuario {
 //      mappedBy: Este atributo contendrá el nombre de la propiedad/atributo Java de la clase hija que enlaza
 //      con la clase padre. En nuestro ejemplo es el nombre de la propiedad usuario que se encuentra en la
 //      clase item.
-    @OneToMany(mappedBy = "usuario")
-    private List<Item> items;
+//    @OneToMany(mappedBy = "usuario")
+//    private List<Item> items;
 
     protected Usuario() {
     }
@@ -30,9 +33,15 @@ public class Usuario {
     public Usuario(String nombre, String apellido) {
         this.nombre = nombre;
         this.apellido = apellido;
-        this.items = new ArrayList<Item>();
+        //this.items = new ArrayList<Item>();
     }
 
+    public Usuario(int id, String nombre, String apellido) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        //this.items = new ArrayList<Item>();
+    }
     public int getId() {
         return id;
     }
@@ -57,12 +66,12 @@ public class Usuario {
         this.apellido = apellido;
     }
 
-    @JsonIgnore
-    public List<Item> getItems() {
-        return items;
-    }
-
-    public void setItems(List<Item> items) {
-        this.items = items;
-    }
+//    @JsonIgnore
+//    public List<Item> getItems() {
+//        return items;
+//    }
+//
+//    public void setItems(List<Item> items) {
+//        this.items = items;
+//    }
 }
