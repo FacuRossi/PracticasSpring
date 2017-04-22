@@ -66,7 +66,7 @@ public class Usuario {
         this.apellido = apellido;
     }
 
-    @JsonIgnore
+//    @JsonIgnore
     public List<Item> getItems() {
         return items;
     }
